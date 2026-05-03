@@ -1,0 +1,38 @@
+<!-- public/404.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Maison Jove</title>
+
+    <script type="text/javascript">
+      /*
+        GitHub Pages SPA fallback.
+
+        Cuando el usuario entra directo a una ruta como:
+        /brand/merch
+        /product/mj-signature-hoodie
+
+        GitHub Pages no encuentra ese archivo físico y carga 404.html.
+        Este script guarda la ruta original y redirige a la raíz.
+        Luego index.html recupera esa ruta y React Router renderiza la página correcta.
+      */
+
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+
+      var redirectPath = path + search + hash;
+
+      sessionStorage.setItem("mj_redirect_path", redirectPath);
+
+      window.location.replace("/");
+    </script>
+  </head>
+
+  <body>
+    <noscript>
+      Maison Jove requires JavaScript to continue.
+    </noscript>
+  </body>
+</html>
